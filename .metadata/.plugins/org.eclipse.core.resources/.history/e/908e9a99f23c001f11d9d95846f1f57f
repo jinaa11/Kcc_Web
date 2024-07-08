@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+</head>
+<body>
+	<h2>기본정보 입력</h2>
+	<table border="1">
+		<tbody>
+			<tr>
+				<th>이름</th>
+				<td>
+					<input type="text" name="name">
+				</td>
+			</tr>
+			<tr>
+				<th>아이디</th>
+				<td>
+					<input type="text" name="name">
+					<input type="button" name="duplication_check" value="중복체크">
+				</td>
+			</tr>
+			<tr>
+				<th>비밀번호</th>
+				<td>
+					<input type="password" name="password">
+				</td>
+			</tr>
+			<tr>
+				<th>비밀번호 확인</th>
+				<td>
+					<input type="password" name="password_check">
+				</td>
+			</tr>
+			<tr>
+				<th>이메일</th>
+				<td>
+					<input type="text" name="email">@
+					<select name="email_type">
+						<option value="default">선택하세요</option>
+						<option value="naver">naver.com</option>
+						<option value="daum">daum.net</option>
+						<option value="gmail">gmail.com</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>연락처</th>
+				<td>
+					<input type="text" name="name">
+				</td>
+			</tr>
+			<tr>
+				<th>메일수신여부</th>
+				<td>
+					<input type="text" name="name">
+				</td>
+			</tr>
+			<tr>
+				<th>관심분야</th>
+				<td>
+					<input type="text" name="name">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
