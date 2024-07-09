@@ -3,6 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	body {
+		background-image: url("images/bg3.jpg");
+		background-repeat: repeat-y;
+	}
+	h2 {
+		word-spacing: 5px;
+		letter-spacing: 10px;
+	}
+	header > p {
+		background-color: #888888;
+	}
+	#serif {
+		font-family: serif;
+		display: inline
+	}
+	#sans-serif {
+		font-family: sans-serif;
+		display: inline
+	}
+	#normal {
+		font-style: normal;
+		font: bold 12px/1.3em Verdana;
+		display: inline
+	}
+	#italic {
+		font-style: italic;
+		font-weight: bold;
+		display: inline;
+	}
+	#oblique {
+		font-style: oblique;
+		font-size: 75%;
+		display: inline;
+	}
+	#manner > div {
+		text-align: center;
+		text-decoration: line-through;
+	}
+	#section_css > div {
+		letter-spacing: 5px;
+		line-height: 0.7; color: #9900CC;
+	}
+	#ul_menu{
+		display: inline;
+	} 
+	
+	#ul_menu a {
+		background-color: #FF6633;
+	}
+	#passing div {
+		text-indent: 5px;
+		text-indent: 1cm;
+	}
+	
+</style>
 </head>
 <body>
 	<header>
@@ -12,12 +68,12 @@
 	
 	<!-- 메뉴 -->
 	<nav>
-		<ul>
-			<li><a href="#">산행예절</a></li>
-			<li><a href="#">산행준비</a></li>
-			<li><a href="#">산행종류</a></li>
-			<li><a href="#">보행요령</a></li>
-			<li><a href="#">등산식량</a></li>
+		<ul id="ul_menu">
+			<li id="serif"><a href="#">산행예절</a></li>
+			<li id="sans-serif"><a href="#">산행준비</a></li>
+			<li id="normal"><a href="#">산행종류</a></li>
+			<li id="italic"><a href="#">보행요령</a></li>
+			<li id="oblique"><a href="#">등산식량</a></li>
 		</ul>
 	</nav>
 	
@@ -40,7 +96,7 @@
 		</div>
 	</section>
 	
-	<section>
+	<section id="passing">
 		<header>
 			<h3>추월을 해야 할땐 먼저 양해를 구하자.</h3>
 		</header>
@@ -51,7 +107,7 @@
 		</div>
 	</section>
 	
-	<section>
+	<section id="section_css">
 		<header>
 			<h3>올라오는 사람에게 양보를 하자.</h3>
 		</header>
