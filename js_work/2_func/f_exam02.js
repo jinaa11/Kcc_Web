@@ -32,6 +32,8 @@ var greeting = function(name) {
 var greeting2  = name => {
   return `Hello ${name}`;
 }
+// greeting2와 greeting3는 같은 표현
+var greeting3 = name => `Hello ${name}`;
 
 console.log(greeting('홍길동'));
 console.log(greeting2('박길동'));
