@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    window.onload = function() {
+      // a 태그를 배열 형태로 가져옴
+      const links = document.getElementsByTagName('a');
+      for(let i = 0; i < links.length; i++) {
+        links[i].onclick = function() {
+          // 자신의 부모 window(i_exam03.html)의 window 객체
+          // this: 클릭한 a 태그
+          // this.innerHTML: a 태그에 들어있는 텍스트 값
+          window.opener.document.fmt.address.value = this.innerHTML;
+          self.close();
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>주소 검색</h2>
+  <ul>
+    <li><a href="#">서울 강남구 대치동</a></li>
+    <li><a href="#">서울 종로구 명륜동</a></li>
+    <li><a href="#">경기도 화성시 능동</a></li>
+  </ul>
+</body>
+</html>
