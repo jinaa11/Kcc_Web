@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    function doProcess() {
+      // DOM 객체 불러오기 - getElementById('아이디값');
+      // div 태그를 불러옴
+      // const result = document.getElementById('result');
+      
+      // querySelector는 선택자를 넣음
+      const result = document.querySelector('#result');
+      result.innerHTML = '<span>이벤트 결과1</span>';
+    }
+
+    function doProcess2() {
+      alert('이벤트 결과2');
+    }
+
+    // head 부분이 먼저 읽혀서 버튼의 id를 알 수 없음
+    // const btn = document.getElementById('btn');
+    // btn.onclick = doProcess2;
+
+    // window.onload: 페이지가 로드되면 자동으로 실행되는 전역 콜백함수
+    // 페이지의 모든 요소들이 로드 되어야 호출됨
+    window.onload = function() {
+      const btn = document.getElementById('btn');
+      // btn.onclick = doProcess2;
+      // 이벤트 덮어쓰기가 되어 (함수의 주소 값은 하나 밖에 들어갈 수 없음) 둘 다 같이 실행될 수 없다.
+      // btn.onclick = doProcess; 
+      
+      // 이벤트 리스너 방식 - 대부분 이벤트 등록 시 사용하는 방법
+      btn.addEventListener('click', doProcess2, false);
+      btn.addEventListener('click', doProcess, false);
+    }
+
+  </script>
+</head>
+<body>
+  <div id="result"></div>
+  <input type="button" value="버튼1" onclick="doProcess()">&nbsp;&nbsp;
+  <input type="button" id='btn' value="버튼2">
+
+  <!-- onload 때문에 아래와 같이 body에 script 쓰는 방식이 대부분 -->
+  <script type="text/javascript">
+    // const btn = document.getElementById('btn');
+    // btn.onclick = doProcess2;
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    function checkId() {
+      const str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+      const id = document.fmt.id.value; // 입력한 아이디 값 받기
+      
+      // for(let i = 0; i < id.length; i++) {
+      //   let result = str.indexOf(id.charAt(i));
+      //   if(result == -1) {
+      //     alert('부적절한 아이디입니다.')
+      //     break;
+      //   }
+      // }
+
+      for(let i = 0; i < id.length; i++) {
+        if(!str.includes(id.charAt(i))) {
+          alert('유효하지 않는 아이디입니다.')
+          return;
+        }
+      }
+      alert(id);
+    }
+    
+    function checkEmail() {
+      const email = document.fmt.email.value;
+      const result = email.indexOf('@');
+      
+      if(result == -1) {
+        alert('부적절한 이메일입니다.');
+      }
+    }
+    
+    function check() {
+      checkId();
+      checkEmail();
+    }
+  </script>
+</head>
+<body>
+  <form name="fmt">
+    아이디: <input type="text" name="id"><br>
+    이메일: <input type="text" name="email"><br>
+    <input type="button" value="전송" onclick="check()">
+  </form>
+</body>
+</html>

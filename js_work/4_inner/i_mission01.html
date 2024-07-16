@@ -27,6 +27,8 @@
         var img = document.getElementById('img');
         const ran = Math.floor(Math.random() * files.length);
         img.src = files[ran];
+
+        // 시간 간격으로 자동 새로고침
         // let imgId;
         // function show() {
           // var img = document.getElementById('img');
@@ -35,6 +37,20 @@
           // img.src = files[ran];
         // }
         // imgId = setInterval(show, 1000);
+
+        // 교수님 풀이
+        // let arr = [];
+
+        // for(let i = 0; i < 7; i++) {
+        //   arr[i] = '../images/pic' + (i + 1) + '.jpg';
+        // }
+
+        // window.onload = function() {
+        //   // 난수 발생
+        //   const n = Math.floor(Math.random() * 7); // 0 ~ 6
+        //   const img = document.getElementById('img');
+        //   img.src = arr[n];
+        // }
     }
     
     

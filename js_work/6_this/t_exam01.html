@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      /**
+       * 일반함수 안에서 this는 window 객체이다.
+       */
+      // let data = 10;과의 차이점 알기!
+      var data = 10; // 전역 변수(윈도우 객체에 소속)
+
+      function func() {
+        this.data = 20; // 윈도우 객체
+        data = 30;
+
+        console.log("1. data: " + data); // 30
+        console.log("2. this.data: " + this.data); // 30
+        console.log("3. window.data: " + window.data); // 30
+      }
+
+      func();
+    </script>
+  </head>
+  <body></body>
+</html>

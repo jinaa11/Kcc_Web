@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    var data = "Global data";
+
+    var obj1 = {data : 'obj1 data'};
+    var obj2 = {data : 'obj2 data'};
+
+    function func(a, b, charset) {
+      console.log(this.data);
+    }
+
+    // call -> 콤마를 기반으로 argument를 순서대로 넘겨줌
+    // apply -> argument를 리스트로 입력해야 한다.
+    // func.apply(obj2, [2, 3, 4]); // apply: this를 결정
+    func.call(obj2, 2, 3, 4);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

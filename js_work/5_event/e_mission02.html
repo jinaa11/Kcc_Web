@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    let sum = 0;
+    let pre = 0; // 이전 값
+
+    function calc(e){
+      // this: 선택한(이벤트 대상) input
+      // type => checkbox or radio => 식별 => 연산
+      const type = this.type;
+
+      if(type === 'checkbox') {
+        if(this.checked == true) {
+          sum += parseInt(this.value);
+        } else { // 체크 해제
+          sum -= parseInt(this.value);
+        }
+      } else { // 라디오 버튼
+          sum -= pre;
+          sum += parseInt(this.value);
+          pre = parseInt(this.value);
+      }
+      document.fmt.result.value = sum;
+    }
+
+    window.onload = function(){
+      const inputs = document.getElementsByTagName('input');
+      for(let i=0;i<inputs.length;i++){
+        inputs[i].onclick = calc;
+      }			
+	  }
+  </script>
+</head>
+<body>
+  <form name="fmt">
+    두부 400원
+    <input type="checkbox" value="400" >
+    콩나물 150원
+    <input type="checkbox" value="150">
+    간장 1500원
+    <input type="checkbox" value="1500">
+    <br><br>
+    퀵 서비스
+    <input type="radio" name="del" value="5000">
+    택배
+    <input type="radio" name="del" value="2500">
+    <br><br>
+    
+    지불하실 금액은 : <input type="text" name="result">
+  </form>
+</body>
+</html>
