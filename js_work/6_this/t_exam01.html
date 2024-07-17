@@ -9,7 +9,8 @@
        * 일반함수 안에서 this는 window 객체이다.
        */
       // let data = 10;과의 차이점 알기!
-      var data = 10; // 전역 변수(윈도우 객체에 소속)
+      let data = 10;
+      // var data = 10; // 전역 변수(윈도우 객체에 소속)
 
       function func() {
         this.data = 20; // 윈도우 객체
