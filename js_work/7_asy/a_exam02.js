@@ -58,16 +58,16 @@ getPromise(3)
 //   });
 
 // 과제> 빌린 돈에 대한 원금 + 이자(10%)에 대한 상환 금액을 비동기식으로 구현하시오.
-// const borrow = 20;
+const borrow = 20;
 
-// const payWith10Perc = new Promise((resolve, reject) => {
-//     resolve(borrow * 1.1);
-// });
+const payWith10Perc = new Promise((resolve, reject) => {
+    resolve(borrow * 1.1);
+});
 
-// payWith10Perc
-//   .then(result => {
-//     console.log(result + '만원');
-//   });
+payWith10Perc
+  .then(result => {
+    console.log(result + '만원');
+  });
 
-// console.log('완료');
+console.log('완료');
 
