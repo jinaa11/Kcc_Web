@@ -3,7 +3,18 @@
 <head>
     <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
     <script>
-       
+       $(function() {
+    	   // submit: 폼에서만 사용할 수 있는 이벤트
+    	   $('#my-form').submit(function(event) {
+    		   const name = $('#name').val();
+    		   const password = $('#password').val();
+    		   
+    		   console.log(name + ": " + password);
+    		   
+    		   // 기본 이벤트 취소 - 폼의 action으로 화면이 넘어가는 것을 방지
+    		   event.preventDefault();
+    	   })
+       })
     </script>
 </head>
 <body>

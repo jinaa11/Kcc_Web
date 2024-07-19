@@ -3,14 +3,28 @@
 <head>
     <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
     <script>
-       
+       $(function() {
+    	   // 체크박스에서 쓰는 함수: 값이 변경되었을 때 - change
+    	   $('#all-check').change(function() {
+    		   // 체크 되었으면
+    		   // js에서는 문자열이 있으면 true로 판단, checked="checked"이면 true 없으면 false
+    		  if(this.checked) {
+    			  // attr: getAttribute, setAttribute 합친 것, checked 속성에 checked를 넣겠다.
+    			  // $('#check-item :checkbox').attr('checked', 'checked');
+    		  	  // prop: true, false로 체크 상태
+    			  $('#check-item :checkbox').prop('checked', true);
+    		  } else {
+    			  $('#check-item :checkbox').prop('checked', false);
+    		  }
+    	   });
+       });
     </script>
 </head>
 <body>
     <input type="checkbox" id="all-check" />
     <label>All</label>
     <div id="check-item">
-        <input type="checkbox" />
+        <input type="checkbox"/>
         <label>A Option</label>
         <input type="checkbox" />
         <label>B Option</label>
