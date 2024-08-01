@@ -20,40 +20,77 @@ public class BoardDao {
 	public static BoardDao getInstance() {
 		return dao;
 	}
-	
-	// JNDI 기술을 이용해서  DBCP 구현
+
+	// JNDI 기술을 이용해서 DBCP 구현
 	// DataSource 객체(Connection Pool) => JNDI 이름으로 jdbc/oracle
 	public Connection getDBCPConnection() {
 		DataSource ds = null;
-		
+
 		try {
 			Context ctx = new InitialContext();
-			ds = (DataSource)ctx.lookup("java:comp/env/jdbc/oracle");
-			
+			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
+
 			return ds.getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
-	
+
+	// 글 1개 보기
+	public Board detailBoard(int seq) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Board board = new Board();
+
+		String sql = "select * from board where seq = ?";
+
+		try {
+			conn = getDBCPConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, seq);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) { // rs는 이전 값을 가리킴, 따라서 next 해주면 첫 번째 row를 가리킴
+				board.setSeq(rs.getInt("seq"));
+				board.setTitle(rs.getString("title"));
+				board.setWriter(rs.getString("writer"));
+				board.setContents(rs.getString("contents"));
+				board.setRegdate(rs.getString("regdate"));
+				board.setHitcount(rs.getInt("hitcount"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (Exception e2) {}
+			}
+		}
+
+		return board;
+
+	}
+
 	// 글 목록 보기
 	public List<Board> listBoard() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Board> list = new ArrayList<Board>();
-		
+
 		String sql = "select * from board order by seq desc";
-		
+
 		try {
 			conn = getDBCPConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			
+
 			// 하나의 row board 객체에 들어감
-			while(rs.next()) { // 첫 번째 row
+			while (rs.next()) { // 첫 번째 row
 				Board board = new Board();
 				board.setSeq(rs.getInt("seq"));
 				board.setTitle(rs.getString("title"));
@@ -61,25 +98,21 @@ public class BoardDao {
 				board.setContents(rs.getString("contents"));
 				board.setRegdate(rs.getString("regdate"));
 				board.setHitcount(rs.getInt("hitcount"));
-				
+
 				list.add(board);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if(pstmt != null) {
+			if (pstmt != null) {
 				try {
 					pstmt.close();
-				} catch (Exception e2) {}
+				} catch (Exception e2) {
+				}
 			}
 		}
-		
+
 		return list;
-	}
-	
-	// 하나의 글 상세보기
-	public void detailContent() {
-		
 	}
 
 	// 싱글톤 방식
@@ -119,12 +152,14 @@ public class BoardDao {
 			if (pstmt != null) {
 				try {
 					pstmt.close();
-				} catch (Exception e2) {}
+				} catch (Exception e2) {
+				}
 			}
 			if (conn != null) {
 				try {
 					conn.close();
-				} catch (Exception e2) {}
+				} catch (Exception e2) {
+				}
 			}
 		}
 
