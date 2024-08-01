@@ -156,7 +156,10 @@
       <Context docBase="CSS" path="/CSS" reloadable="true" source="org.eclipse.jst.jee.server:CSS"/>
       <Context docBase="Ajax" path="/Ajax" reloadable="true" source="org.eclipse.jst.jee.server:Ajax"/>
       <Context docBase="jQuery" path="/jQuery" reloadable="true" source="org.eclipse.jst.jee.server:jQuery"/>
-      <Context docBase="JSP" path="/" reloadable="true" source="org.eclipse.jst.jee.server:JSP"/></Host>
+      <Context docBase="JSP" path="/" reloadable="true" source="org.eclipse.jst.jee.server:JSP">
+      	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/oracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="kcc"/>
+      </Context>
+      </Host>
     </Engine>
   </Service>
 </Server>
