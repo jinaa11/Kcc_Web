@@ -9,7 +9,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import kosa.mapper.BlogMapper;
 import kosa.mapper.BoardMapper;
+import kosa.model.Blog;
 import kosa.model.Board;
 import kosa.model.Search;
 
@@ -32,6 +34,23 @@ public class BoardDao2 {
 		}
 
 		return new SqlSessionFactoryBuilder().build(in);
+	}
+	
+	public Blog selectBlog(int id) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		Blog blog = null;
+
+		try {
+			blog = sqlSession.getMapper(BlogMapper.class).selectBlog(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+
+		return blog;
 	}
 
 	// public List<Board> listBoard(Search search) {
