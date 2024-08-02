@@ -11,4 +11,9 @@
 			values(#{id}, #{password}, #{name}, #{age}, #{address}, #{phone})
 	</insert>
 	
+	<select id="loginMember" parameterType="Member" resultType="Member">
+		select id, password from membership
+		where id = #{id}
+	</select>
+	
 </mapper>

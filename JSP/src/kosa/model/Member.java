@@ -1,6 +1,8 @@
 package kosa.model;
 
-public class Member {
+import java.io.Serializable;
+
+public class Member implements Serializable {
 	private String id;
 	private String password;
 	private String name;
