@@ -5,15 +5,14 @@
 
 <!-- namespace를 가진 mapper 인터페이스 만들기 -->
 <mapper namespace="kosa.mapper.MemberMapper">
-	<cache />
 	<insert id="insertMember" parameterType="Member">
-		insert into membership(id, password, name, age, address, phone)
-			values(#{id}, #{password}, #{name}, #{age}, #{address}, #{phone})
+		insert into membership(userId, password, name, age, address, phone)
+			values(#{userId}, #{password}, #{name}, #{age}, #{address}, #{phone})
 	</insert>
 	
-	<select id="loginMember" parameterType="Member" resultType="Member">
-		select id, password from membership
-		where id = #{id}
+	<select id="loginMember" parameterType="String" resultType="Member">
+		select * from membership
+		where userId = #{userId}
 	</select>
 	
 </mapper>

@@ -53,12 +53,12 @@ public class MemberDao {
 		return re;
 	}
 	
-	public Member loginMember(String id) {
+	public Member loginMember(String userId) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		Member member = null;
 		
 		try {
-			member = sqlSession.getMapper(MemberMapper.class).loginMember(id);
+			member = sqlSession.getMapper(MemberMapper.class).loginMember(userId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

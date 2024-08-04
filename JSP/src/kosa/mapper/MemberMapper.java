@@ -4,5 +4,5 @@ import kosa.model.Member;
 
 public interface MemberMapper {
 	int insertMember(Member member);
-	Member loginMember(String id);
+	Member loginMember(String userId);
 }
